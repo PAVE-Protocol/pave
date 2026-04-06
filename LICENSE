@@ -1,0 +1,34 @@
+PAVE Protocol Proprietary License
+Copyright 2026 Fruit Ventures LLC. All rights reserved.
+
+The Perspective Asset Valuation and Exchange Protocol (PAVE),
+including the GHI taxonomy, elicitation methodology, valuation
+algorithm, access fee structure, and POV Market methodology,
+is proprietary intellectual property of Fruit Ventures LLC.
+
+This specification is made publicly available for the purpose
+of establishing prior art and inviting community engagement.
+Publication does not constitute an open source license.
+
+Permitted:
+- Reading and referencing this specification
+- Non-commercial research and evaluation
+- Building compatible implementations for personal,
+  non-commercial use
+
+Not Permitted without a written license agreement from
+Fruit Ventures LLC:
+- Commercial implementation of any PAVE component
+- Sublicensing, reselling, or redistributing PAVE
+  or any derivative work
+- Using the PAVE valuation algorithm or elicitation
+  methodology in any commercial product or service
+- Using PAVE, GHI, Prova, or KYW as trademarks or
+  product names
+
+For commercial licensing inquiries:
+ab@fruitvc.com
+Fruit Ventures LLC
+
+This license does not affect the UDIF standard, which is
+separately licensed under Apache License 2.0.
