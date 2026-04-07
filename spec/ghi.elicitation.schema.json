@@ -1,0 +1,646 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/PAVE-Protocol/pave/blob/main/spec/ghi.elicitation.schema.json",
+  "title": "PAVE GHI Elicitation Schema",
+  "description": "Schema for structuring Generative Human Intelligence data produced through the PAVE elicitation process. Referenced by extraction prompts to ensure consistent output across platforms. PAVE defines what GHI means and what it is worth. UDIF v3 defines how it moves.",
+  "version": "0.1",
+  "status": "draft",
+  "published": "2026-04-07",
+  "inventor": "Angela Benton",
+  "owner": "Fruit Ventures LLC",
+  "type": "object",
+  "required": ["meta", "identity", "ghi_record", "provenance"],
+
+  "properties": {
+
+    "meta": {
+      "description": "Document metadata and provenance references.",
+      "type": "object",
+      "required": [
+        "schema_version",
+        "document_type",
+        "elicitation_method",
+        "generator",
+        "timestamp",
+        "subject_id",
+        "consent_granted",
+        "consent_type",
+        "udif_version_reference",
+        "pave_schema_reference"
+      ],
+      "properties": {
+        "schema_version": {
+          "description": "Version of this PAVE GHI schema used to produce this document.",
+          "type": "string",
+          "example": "0.1"
+        },
+        "document_type": {
+          "description": "Always 'ghi_elicitation' for documents produced by this schema.",
+          "type": "string",
+          "enum": ["ghi_elicitation"]
+        },
+        "elicitation_method": {
+          "description": "How the GHI data was surfaced. Warm start uses existing AI memory and conversation history. Cold start uses a full Prova interview. Hybrid combines both. Manual is human-authored.",
+          "type": "string",
+          "enum": ["warm_start", "cold_start", "hybrid", "manual"]
+        },
+        "generator": {
+          "description": "The AI model or tool that produced this document.",
+          "type": "string",
+          "example": "Claude Sonnet 4.6 (Anthropic)"
+        },
+        "timestamp": {
+          "description": "ISO 8601 timestamp of document creation.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "subject_id": {
+          "description": "Identifier for the person whose GHI this document captures.",
+          "type": "string"
+        },
+        "consent_granted": {
+          "description": "Whether the subject has consented to this data being structured.",
+          "type": "boolean"
+        },
+        "consent_type": {
+          "description": "Nature of consent granted.",
+          "type": "string",
+          "enum": ["explicit", "implicit", "pending"]
+        },
+        "udif_version_reference": {
+          "description": "Reference to the UDIF v3 GHI schema that handles portability for this data.",
+          "type": "string",
+          "const": "https://github.com/Universal-Data-Interchange-Format/udif/blob/main/spec/schema/udif.v3.ghi.schema.json"
+        },
+        "pave_schema_reference": {
+          "description": "Self-reference to this schema.",
+          "type": "string",
+          "const": "https://github.com/PAVE-Protocol/pave/blob/main/spec/ghi.elicitation.schema.json"
+        }
+      }
+    },
+
+    "identity": {
+      "description": "Who this person is — not their resume, their operating self-model.",
+      "type": "object",
+      "required": [
+        "subject_name",
+        "primary_role",
+        "self_identifier",
+        "archetype"
+      ],
+      "properties": {
+        "subject_name": {
+          "description": "Full name of the subject.",
+          "type": "string"
+        },
+        "primary_role": {
+          "description": "Current primary professional role.",
+          "type": "string"
+        },
+        "self_identifier": {
+          "description": "How this person describes themselves in their own words — not a job title.",
+          "type": "string"
+        },
+        "archetype": {
+          "description": "A single sentence capturing the irreducible pattern across all outputs. Not a job title. The system underneath.",
+          "type": "string"
+        },
+        "persona_tags": {
+          "description": "Array of role and identity descriptors.",
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "location": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string",
+          "default": "en"
+        }
+      }
+    },
+
+    "ghi_record": {
+      "description": "The core GHI asset. Contains all three data types — Perspective, Judgment, Interpretive — plus the generative cycle, operating frameworks, constraints, heuristics, shadow patterns, contradictions, thesis evolution, and voice signature.",
+      "type": "object",
+      "required": [
+        "perspective_data",
+        "judgment_data",
+        "interpretive_data",
+        "generative_cycle",
+        "operating_frameworks",
+        "constraints",
+        "decision_heuristics",
+        "shadow_patterns",
+        "contradictions",
+        "thesis_evolution",
+        "voice_signature"
+      ],
+      "properties": {
+
+        "perspective_data": {
+          "description": "How this person sees — the accumulated interpretive lens developed through specific domain experience, cultural position, and pattern recognition over time. The source layer of GHI.",
+          "type": "object",
+          "required": ["distinctive_lens", "pattern_recognition_signature"],
+          "properties": {
+            "distinctive_lens": {
+              "description": "The overarching way this person sees the world that differs from consensus.",
+              "type": "string"
+            },
+            "domain_specific_sight": {
+              "description": "What this person sees in specific domains that others typically miss.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["domain", "what_I_see_others_dont"],
+                "properties": {
+                  "domain": { "type": "string" },
+                  "what_I_see_others_dont": { "type": "string" },
+                  "confidence": {
+                    "type": "string",
+                    "enum": ["high", "medium", "emerging"]
+                  }
+                }
+              }
+            },
+            "pattern_recognition_signature": {
+              "description": "The specific type of patterns this person reliably recognizes before others do.",
+              "type": "string"
+            }
+          }
+        },
+
+        "judgment_data": {
+          "description": "How this person acts on what they know — the decision record. The activation layer of GHI. Without Judgment Data the generative cycle does not run.",
+          "type": "object",
+          "required": ["decision_velocity", "risk_calibration"],
+          "properties": {
+            "decision_record": {
+              "description": "Specific high-stakes decisions with context, stakes, reasoning, consequence, and what compounded into the Signal.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "context",
+                  "decision",
+                  "stakes",
+                  "reasoning",
+                  "consequence",
+                  "what_compounded"
+                ],
+                "properties": {
+                  "context": { "type": "string" },
+                  "decision": { "type": "string" },
+                  "stakes": { "type": "string" },
+                  "reasoning": { "type": "string" },
+                  "consequence": { "type": "string" },
+                  "what_compounded": {
+                    "description": "What deepened in the Signal as a result of this decision.",
+                    "type": "string"
+                  },
+                  "domain": { "type": "string" },
+                  "visibility": {
+                    "type": "string",
+                    "enum": ["public", "private"],
+                    "default": "private"
+                  }
+                }
+              }
+            },
+            "decision_velocity": {
+              "description": "How fast or slow this person moves from observation to commitment.",
+              "type": "string"
+            },
+            "risk_calibration": {
+              "description": "How this person weighs downside versus upside across decisions.",
+              "type": "string"
+            }
+          }
+        },
+
+        "interpretive_data": {
+          "description": "How this person makes sense of what they see — the frameworks, models, and analytical structures that crystallize from accumulated experience. The licensable expression of GHI.",
+          "type": "object",
+          "required": ["transferable_principles"],
+          "properties": {
+            "named_frameworks": {
+              "description": "Formal frameworks this person has developed and named.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["name", "description", "origin"],
+                "properties": {
+                  "name": { "type": "string" },
+                  "description": { "type": "string" },
+                  "origin": {
+                    "description": "What experience or observation produced this framework.",
+                    "type": "string"
+                  },
+                  "applications": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                  }
+                }
+              }
+            },
+            "transferable_principles": {
+              "description": "Principles that apply across domains — not domain-specific tactics.",
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "recurring_patterns_named": {
+              "description": "Patterns this person has named that they see repeat across contexts.",
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        },
+
+        "generative_cycle": {
+          "description": "How Perspective, Judgment, and Interpretive data feed each other. Not a hierarchy — a cycle. The asset appreciates because the cycle keeps running.",
+          "type": "object",
+          "required": [
+            "signal_description",
+            "activation_pattern",
+            "crystallization_pattern"
+          ],
+          "properties": {
+            "signal_description": {
+              "description": "The source layer — the accumulated way of seeing that generates everything else.",
+              "type": "string"
+            },
+            "activation_pattern": {
+              "description": "What triggers the decision layer — how the Signal moves into action.",
+              "type": "string"
+            },
+            "crystallization_pattern": {
+              "description": "How frameworks emerge — the conditions under which patterns become legible and transferable.",
+              "type": "string"
+            },
+            "cycle_velocity": {
+              "description": "How fast this person's generative cycle runs — from Signal to Decision to Framework.",
+              "type": "string"
+            }
+          }
+        },
+
+        "operating_frameworks": {
+          "description": "All frameworks — rational and non-rational — used as upstream decision filters. This field exists because standard schemas assume rational self-models only. A complete GHI record captures how decisions are actually made, not how they are supposed to be made.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "framework_name",
+              "framework_type",
+              "how_applied"
+            ],
+            "properties": {
+              "framework_name": { "type": "string" },
+              "framework_type": {
+                "type": "string",
+                "enum": [
+                  "analytical",
+                  "intuitive",
+                  "somatic",
+                  "astrological",
+                  "spiritual",
+                  "cultural",
+                  "hybrid"
+                ]
+              },
+              "how_applied": {
+                "description": "Specifically how this framework is used in decisions.",
+                "type": "string"
+              },
+              "weight_in_decisions": {
+                "type": "string",
+                "enum": ["high", "medium", "low"]
+              },
+              "visibility": {
+                "type": "string",
+                "enum": ["public", "private"],
+                "default": "private"
+              }
+            }
+          }
+        },
+
+        "constraints": {
+          "description": "Structural non-negotiables that function as pre-decisions. Distinct from preferences — these constrain all other decisions before they are made. A schema that treats these as preferences produces an inaccurate model.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["constraint", "non_negotiable"],
+            "properties": {
+              "constraint": { "type": "string" },
+              "domain": { "type": "string" },
+              "origin": {
+                "description": "Where this constraint came from — experience, doctrine, or principle.",
+                "type": "string"
+              },
+              "non_negotiable": {
+                "type": "boolean",
+                "description": "True if this constraint resists override even when situationally inconvenient."
+              }
+            }
+          }
+        },
+
+        "decision_heuristics": {
+          "description": "Repeatable rules of thumb extracted from behavioral patterns. Not invented — recognized from accumulated decisions.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["heuristic", "trigger"],
+            "properties": {
+              "heuristic": { "type": "string" },
+              "trigger": {
+                "description": "The condition or signal that activates this heuristic.",
+                "type": "string"
+              },
+              "counter_heuristic": {
+                "description": "The exception this person consistently makes to this rule.",
+                "type": ["string", "null"]
+              }
+            }
+          }
+        },
+
+        "shadow_patterns": {
+          "description": "Named behavioral patterns the subject has identified as recurring defaults they are actively working against. Preserved as data — not errors to resolve. A GHI record without shadow patterns is incomplete.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["pattern_name", "description", "status"],
+            "properties": {
+              "pattern_name": { "type": "string" },
+              "description": { "type": "string" },
+              "source": {
+                "description": "Where this pattern comes from.",
+                "type": "string"
+              },
+              "active_counter_move": {
+                "description": "What this person is actively doing to work against this pattern.",
+                "type": ["string", "null"]
+              },
+              "status": {
+                "type": "string",
+                "enum": ["identified", "active_work", "integrated"]
+              }
+            }
+          }
+        },
+
+        "contradictions": {
+          "description": "Simultaneous opposing drivers preserved as features not bugs. A schema that flattens contradictions produces an inaccurate and less useful model. Contradictions are the highest-signal data in a GHI record.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["pair", "description"],
+            "properties": {
+              "pair": {
+                "description": "The two opposing drivers. Always exactly two.",
+                "type": "array",
+                "items": { "type": "string" },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "description": {
+                "description": "How these two things coexist in practice.",
+                "type": "string"
+              },
+              "productive_tension": {
+                "description": "Whether this contradiction generates useful output rather than just friction.",
+                "type": "boolean"
+              }
+            }
+          }
+        },
+
+        "thesis_evolution": {
+          "description": "Intellectual history as a versioned timeline. Distinguishes proven theses from active ones from deprecated positions. A flat list loses the arc.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["period", "thesis", "status"],
+            "properties": {
+              "period": { "type": "string" },
+              "thesis": { "type": "string" },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "proven",
+                  "active",
+                  "emerging",
+                  "deprecated"
+                ]
+              },
+              "evidence": {
+                "description": "What validates or validates this thesis.",
+                "type": ["string", "null"]
+              }
+            }
+          }
+        },
+
+        "voice_signature": {
+          "description": "The patterns underneath written outputs — not style preferences. How this person communicates complex ideas, their relationship to certainty, and what they never say.",
+          "type": "object",
+          "required": ["primary_moves", "relationship_to_certainty"],
+          "properties": {
+            "primary_moves": {
+              "description": "The recurring structural moves in how this person argues and communicates.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["name", "description"],
+                "properties": {
+                  "name": { "type": "string" },
+                  "description": { "type": "string" },
+                  "example_pattern": { "type": "string" }
+                }
+              }
+            },
+            "register": {
+              "description": "How this person calibrates formality and accessibility.",
+              "type": "string"
+            },
+            "relationship_to_certainty": {
+              "description": "How this person holds open questions versus resolved positions.",
+              "type": "string"
+            },
+            "what_they_never_say": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "what_they_always_say_instead": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+
+    "values": {
+      "description": "How this person wants their GHI used — permissions, boundaries, and preferred exchange structures.",
+      "type": "object",
+      "properties": {
+        "core_values": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "data_use_permissions": {
+          "description": "What this document may be used for.",
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "sharing_boundaries": {
+          "description": "What should not be surfaced publicly. Present in the full private PAD. Removed from the public licensed derivative.",
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "preferred_exchanges": {
+          "description": "How this person prefers their GHI to be accessed and compensated.",
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+
+    "licensing": {
+      "description": "How this GHI document may be used. PAVE v0.1 introduces this field as the licensing layer for personal algorithm documents. This field does not exist in the base UDIF schema — it is a PAVE extension.",
+      "type": "object",
+      "properties": {
+        "license_type": {
+          "type": "string",
+          "enum": [
+            "personal_use_only",
+            "licensed_api_access",
+            "public_reference",
+            "enterprise_licensed"
+          ]
+        },
+        "permissions": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "restrictions": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "api_endpoint": {
+          "description": "Where the licensed version of this GHI is served as an API. Null until endpoint is configured.",
+          "type": ["string", "null"]
+        },
+        "pricing_reference": {
+          "description": "Link to pricing and access tiers for this GHI.",
+          "type": ["string", "null"]
+        },
+        "pave_tier": {
+          "description": "Which PAVE access tier applies to this license.",
+          "type": "string",
+          "enum": [
+            "tier_1_artifact",
+            "tier_2_active",
+            "tier_3_generative"
+          ]
+        }
+      }
+    },
+
+    "provenance": {
+      "description": "Where this document came from and how to verify it.",
+      "type": "object",
+      "required": [
+        "created_at",
+        "updated_at",
+        "source_types",
+        "synthesis_method",
+        "synthesized_by",
+        "subject_verification_status"
+      ],
+      "properties": {
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "source_types": {
+          "description": "What data sources were used to produce this document.",
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "synthesis_method": {
+          "description": "How the data was processed into this document.",
+          "type": "string"
+        },
+        "synthesized_by": {
+          "description": "The tool or person that produced this document.",
+          "type": "string"
+        },
+        "subject_verification_status": {
+          "description": "Whether the subject has reviewed and approved this document. A document is not authoritative until subject_approved.",
+          "type": "string",
+          "enum": [
+            "pending",
+            "subject_reviewed",
+            "subject_approved",
+            "authoritative"
+          ]
+        },
+        "hash": {
+          "description": "SHA-256 hash of the ghi_record object. Pending until document is finalized.",
+          "type": ["string", "null"]
+        },
+        "signature": {
+          "description": "Subject cryptographic signature establishing authorship. Pending until subject signs.",
+          "type": ["string", "null"]
+        },
+        "chain": {
+          "description": "Provenance chain tracking this document across platforms.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "platform": { "type": "string" },
+              "exported_at": { "type": "string", "format": "date-time" },
+              "hash": { "type": ["string", "null"] }
+            }
+          }
+        }
+      }
+    },
+
+    "schema_gaps": {
+      "description": "Fields that emerged from extraction but have no corresponding schema definition. Documented here rather than suppressed. Gaps drive schema evolution. This is a first-class field — not an afterthought.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["gap_id", "description"],
+        "properties": {
+          "gap_id": { "type": "string" },
+          "description": {
+            "description": "What pattern emerged that the schema couldn't hold.",
+            "type": "string"
+          },
+          "proposed_field": {
+            "description": "What field or object would address this gap.",
+            "type": ["string", "null"]
+          },
+          "priority": {
+            "type": "string",
+            "enum": ["high", "medium", "low"]
+          }
+        }
+      }
+    }
+  }
+}
