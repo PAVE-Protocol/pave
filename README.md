@@ -1,105 +1,119 @@
 # PAVE — Perspective Asset Valuation and Exchange Protocol
 
-**The foundational protocol for Generative Human Intelligence as an asset class.**
+**Programmatic human judgment for agentic systems.**
 
-*Invented by Angela Benton. Developed at Fruit Ventures LLC, March 2026.*
+PAVE is a proprietary protocol developed to make human judgment an executable, attributable, and licensable capability that software agents can apply at scale.
 
----
+It provides an architecture for transforming structured human knowledge into **Lenses**: representations of judgment designed for application to defined classes of decisions. Through authorized integrations, agents can invoke those capabilities within their workflows, extending the reach of human expertise beyond a person's availability for individual consultations or approvals while preserving attribution to the human source.
 
-## What PAVE Is
+Invented by [Angela Benton](https://angelabenton.com). PAVE intellectual property is owned by **[FRUIT Holdings, Inc.](https://byfruit.io)**.
 
-The Perspective Asset Valuation and Exchange Protocol (PAVE) is the foundational protocol that defines Generative Human Intelligence (GHI) as an asset class, governs how GHI units are valued, and structures how they are licensed and transacted.
+## Why agents need human judgment
 
-Most people price their expertise as labor — time applied to a task, compensated per hour or per project. PAVE defines a structurally different model: accumulated human intelligence is an asset, not a service. The terms of the transaction should reflect ownership, not delivery.
+Agentic systems can retrieve information, generate alternatives, coordinate tools, and execute tasks. As they take on more consequential workflows, they also encounter decisions whose quality depends on how competing considerations are weighed.
 
-PAVE is the protocol that makes that shift legible, measurable, and transactable.
+For example, an experienced operator may recognize when a favorable price conceals unacceptable delivery risk. A technical leader may know when an architectural compromise is justified and when it creates an obligation the organization cannot sustain. A researcher may distinguish an interesting result from evidence strong enough to support a conclusion.
 
----
+That judgment develops through decisions, consequences, and experience. Making it available to agents requires more than access to the same information.
 
-## Origin
+PAVE addresses this need by developing a way to represent and apply specific human judgment through a programmatic interface. Its purpose is to let agents draw on identifiable, authorized judgment capabilities at the point where a workflow requires them, while retaining attribution to the human whose judgment is being applied.
 
-PAVE was developed at Fruit Ventures LLC in March 2026 by Angela Benton. It draws on two predecessor IP assets transferred from Streamlytics, Inc. (2018–2022):
+## Human participation in agentic systems
 
-- **The Streamlytics data valuation algorithm** — the methodology for pricing a novel, previously unpriced asset class using observable market signals. PAVE extends this methodology from behavioral data to Generative Human Intelligence.
-- **Open Data Market** — the market visualization methodology for making an emerging asset class legible as a market phenomenon. Directly informs the POV Market architecture within PAVE.
+PAVE is built on the thesis that greater agent autonomy should expand the ways humans can participate and contribute to automated work. A person's judgment can remain an identifiable contribution even when that person is not present for each application of it.
 
-The inventive thread is continuous: pricing novel asset classes that previously had no market — from personal behavioral data to generative human intelligence.
+This matters because the ability to automate a workflow and the expertise needed to guide its decisions are distinct contributions. As agents take on more work, people need mechanisms through which their judgment can participate under defined terms, with its origin and use remaining visible.
 
----
+PAVE's intended model connects three elements:
 
-## GHI — Generative Human Intelligence
+- **Attribution:** identify the human whose judgment a capability represents and preserve that connection when the capability is applied.
+- **Authorization:** define who may invoke the capability, for which purposes, and under what conditions.
+- **Economic participation:** support licensing arrangements through which contributors can receive value from authorized use of their judgment.
 
-GHI is the asset class PAVE defines and governs. It is the earned intelligence a human develops over a lifetime through specific work, specific decisions, and specific consequences. It is the intelligence class that AI cannot replicate.
+Attribution has two levels: identifying the human source of a Lens and recording when that Lens contributes to a particular workflow or decision. Preserving that connection from source through use is an architectural objective. The extent of attribution and usage recording available in an integration must be established for that implementation.
 
-GHI comprises three data types:
+The purpose is to make human contribution identifiable, governable, and economically recognizable within agentic systems. Attribution identifies the source of represented judgment; it does not by itself establish consent, payment, endorsement of an output, or responsibility for an agent's final action.
 
-- **Perspective Data** — How you see. The accumulated interpretive lens developed through specific domain experience, cultural position, and pattern recognition over time.
-- **Judgment Data** — How you act on what you know. The decision record — accumulated history of high-stakes choices made under conditions of uncertainty, with real consequences and real feedback.
-- **Interpretive Data** — How you make sense of what you see. The frameworks, models, and analytical structures that organize perspective into something communicable and applicable.
+## Beyond contextual personalization
 
-These three types are not a hierarchy. They are a generative cycle: Perspective activates through Decision, which compounds into Framework, which deepens Perspective. The cycle is continuous. The asset appreciates because the intelligence keeps generating.
+Giving an LLM a person's biography, conversation history, or knowledge record can help it generate responses informed by that material. In that arrangement, the model still infers how the person might reason.
 
-GHI data is portable via UDIF v3. See: [github.com/Universal-Data-Interchange-Format/udif](https://github.com/Universal-Data-Interchange-Format/udif)
+PAVE's architecture introduces one or more transformations between the human knowledge and the capability used in execution.
 
----
+A **GHI record** represents structured human knowledge. A **Lens** is a derived representation intended to apply supported elements of that judgment to a defined decision context while retaining a connection to its human source. The distinction allows the source record, the transformation, and the resulting behavior to be examined separately, with attribution linking the derived capability to the contributor.
 
-## The PAVE Protocol
+The objective is to make the basis for applying judgment explicit and evaluable, rather than leaving it entirely to a model's interpretation of descriptive context. A Lens does not represent every aspect of a person or guarantee the decision that person would make in an unfamiliar situation.
 
-PAVE consists of five components:
+## Applying judgment at scale
 
-1. **GHI Taxonomy** — the formal definition of Generative Human Intelligence as a distinct data class with three constituent types.
+Human-in-the-loop review brings direct human attention to a decision. When every recurring decision requires that attention, throughput and response time depend on reviewer capacity and availability.
 
-2. **GHI Elicitation Methodology** — the question architecture designed to surface GHI data from a person's professional history. GHI data does not exist in structured form before elicitation — it must be drawn out before it can be structured, stored, or valued.
+PAVE is designed to reduce that dependence for decisions within a supported scope. A defined judgment capability can be invoked repeatedly across authorized agent workflows, while people remain responsible for its scope, evaluation, revision, and the decisions requiring direct review.
 
-3. **Valuation Algorithm** — the formula that produces a GHI asset valuation from structured input signals across four classes: Domain Market Signal, POV Scarcity Signal, Demand Signal, and Crystallization Signal. Produces a dual output: Labor Market Value and Asset Value.
+This creates a different allocation of human effort:
 
-4. **Access Fee Structure** — the framework governing how GHI is priced for licensing across three tiers: Artifact Access, Active Access, and Generative Access.
+| Human contribution | Intended role within a PAVE-enabled workflow |
+| --- | --- |
+| Establish the judgment to be represented | Define the basis for a reusable capability. |
+| Evaluate its fidelity and limits | Determine where its application is appropriate. |
+| Authorize its use | Set the permitted applications and access arrangements. |
+| Remain attributable as its source | Preserve recognition of the human contribution as the capability is reused. |
+| Review exceptions and new situations | Address cases beyond the supported representation. |
+| Revise it as experience develops | Keep the capability aligned with the judgment it represents. |
 
-5. **POV Market** — a market visualization layer that makes GHI legible as an asset class at the market level, displaying domain multipliers, scarcity indices, and demand velocity in real time.
+The intended benefit is broader access to attributable human judgment without requiring the source expert to participate synchronously in every invocation. That benefit depends on demonstrated fidelity, reliable execution, and appropriate integration with the surrounding system's controls.
 
----
+## Intended applications
 
-## Specification
+The following examples illustrate the kinds of integrations PAVE is being developed to support. They are not announcements of deployed products.
 
-The PAVE v0.1 specification is under active development.
+| Agent workflow | Judgment capability | Example boundary for human review |
+| --- | --- | --- |
+| **Procurement** | Apply an operator's framework for weighing cost, reliability, delivery risk, and supplier exceptions. | A new supplier situation outside the framework's evaluated scope. |
+| **Product and engineering** | Apply a technical leader's approach to prioritization and architectural tradeoffs. | A consequential commitment requiring fresh strategic judgment. |
+| **Customer resolution** | Apply a service leader's framework for selecting proportionate remedies. | An unusual case or a remedy beyond the application's delegated authority. |
+| **Research and analysis** | Apply an expert's framework for assessing evidence and identifying unresolved gaps. | Conflicting evidence that the represented framework cannot adequately resolve. |
 
-Core components:
-- **GHI Taxonomy** — formal definition of the asset class
-- **Elicitation Methodology** — question architecture by GHI data type
-- **Valuation Algorithm** — input classes, multiplier methodology, dual output formula
-- **Access Fee Structure** — three-tier licensing framework with appreciation mechanism
-- **POV Market** — architecture and data model
+In a procurement integration, for example, an agent could assemble supplier options and relevant evidence, invoke an authorized Lens as part of its evaluation, and use the result to inform a recommendation. Under the intended attribution model, the workflow would record which Lens contributed and retain the connection to the human whose judgment it represents. The surrounding application would retain responsibility for purchasing authority, execution controls, and escalation.
 
-Note on licensing: PAVE is not released under an open source license. Commercial use requires a license agreement with Fruit Ventures LLC. The specification is published here to establish public prior art and invite community engagement with the standard.
+## Generative Human Intelligence
 
----
+PAVE organizes **Generative Human Intelligence (GHI)** into three related types:
 
-## Products Built on PAVE
+- **Perspective:** how a person notices and interprets situations.
+- **Judgment:** how a person weighs considerations and makes decisions.
+- **Interpretive knowledge:** the frameworks, principles, and transferable patterns developed through experience.
 
-- **[Prova](https://yourheirloom.ai)** — the GHI elicitation product. Surfaces, structures, and documents a person's GHI for the first time.
-- **KYW (Know Your Worth)** — the valuation product. Runs the PAVE algorithm on structured GHI data and produces the dual output.
+These provide a foundation for representing human expertise as an asset whose application can be attributed, authorized, evaluated, and licensed.
 
----
+## Public scope and proprietary methods
 
-## Contributing
+This repository provides a public overview and selected earlier schema materials. It does not disclose the complete proprietary methodology for eliciting, extracting, and transforming human judgment into executable representations.
 
-PAVE is a published specification. Feedback, implementation questions, and use case discussions are welcome via GitHub issues.
+The public documentation describes the purpose, conceptual boundaries, and intended applications of PAVE. Detailed methods and implementation materials are maintained separately and are not offered under an open-source license.
 
-Commercial licensing inquiries: [ab@fruitvc.com](mailto:ab@fruitvc.com)
+## Development status
 
----
+PAVE is under active development. The current architecture is maintained separately from this public repository. Earlier public schemas document prior work and should not be treated as the complete current architecture.
 
-## License
+This repository is not a production SDK or a self-service runtime. The applications described above express the intended integration model; specific capabilities and availability must be established for each implementation.
 
-PAVE is proprietary to Fruit Ventures LLC. This specification is published for public prior art purposes. Commercial use requires a license agreement.
+Evaluation priorities include fidelity to the represented judgment, preservation of source attribution, traceability of use, behavior at scope boundaries, and the operational effect on agent workflows. Suitability and performance are evaluated within the scope of each implementation and use case.
 
-See [LICENSE](./LICENSE) for full terms.
+## Relationship to UDIF
 
----
+[UDIF — Universal Data Interchange Format](https://github.com/Universal-Data-Interchange-Format/udif) provides an open format for portable data and context. PAVE develops the proprietary capabilities for representing and applying human judgment.
 
-## Links
+UDIF can be adopted independently under Apache License 2.0. Using its published GHI interchange schema does not itself require a PAVE commercial license or provide an executable PAVE Lens.
 
-- [UDIF](https://github.com/Universal-Data-Interchange-Format/udif) — the data portability standard PAVE builds on
-- [Heirloom](https://yourheirloom.ai) — data sovereignty infrastructure
-- [Angela Benton](https://angelabenton.com) — inventor
-- [Fruit Ventures LLC](https://fruitvc.com) — IP holder
+UDIF remains personally owned and independently maintained by Angela Benton. PAVE is owned by FRUIT Holdings, Inc. Their technical relationship does not combine their ownership or licensing terms.
+
+## Ownership and licensing
+
+**Angela Benton** is PAVE's inventor. **[FRUIT Holdings, Inc.](https://byfruit.io)** owns the PAVE protocol intellectual property.
+
+Ownership of the protocol is separate from rights in an individual's source material and judgment records. An integration must address permission to use that material as well as permission to use PAVE, including applicable attribution requirements and any contributor compensation arrangements.
+
+PAVE is proprietary. Commercial implementation requires a written license agreement. Public access to this repository does not constitute an open-source license; see [LICENSE](./LICENSE) for the applicable terms.
+
+For commercial licensing, evaluation, and integration inquiries, contact [hello@byfruit.io](mailto:hello@byfruit.io) or visit [FRUIT](https://byfruit.io). Documentation feedback and general technical questions are welcome through [GitHub issues](https://github.com/PAVE-Protocol/pave/issues).
