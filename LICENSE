@@ -1,34 +1,172 @@
-PAVE Protocol Proprietary License
-Copyright 2026 Fruit Ventures LLC. All rights reserved.
+PAVE Public Materials License
+Version 1.0 — September 16, 2026
 
-The Perspective Asset Valuation and Exchange Protocol (PAVE),
-including the GHI taxonomy, elicitation methodology, valuation
-algorithm, access fee structure, and POV Market methodology,
-is proprietary intellectual property of Fruit Ventures LLC.
+Copyright 2026 FRUIT Holdings, Inc. All rights reserved.
 
-This specification is made publicly available for the purpose
-of establishing prior art and inviting community engagement.
-Publication does not constitute an open source license.
+1. Scope
 
-Permitted:
-- Reading and referencing this specification
-- Non-commercial research and evaluation
-- Building compatible implementations for personal,
-  non-commercial use
+This license governs the documentation, schemas, examples, and any code
+expressly made available under it in the PAVE public repository
+(the "Materials"). FRUIT Holdings, Inc. is the licensor ("FRUIT").
 
-Not Permitted without a written license agreement from
-Fruit Ventures LLC:
-- Commercial implementation of any PAVE component
-- Sublicensing, reselling, or redistributing PAVE
-  or any derivative work
-- Using the PAVE valuation algorithm or elicitation
-  methodology in any commercial product or service
-- Using PAVE, GHI, Prova, or KYW as trademarks or
-  product names
+Materials expressly identified as subject to another license remain
+governed by that license. This license does not grant access to private
+PAVE methods, implementation materials, software, APIs, or services.
 
-For commercial licensing inquiries:
-ab@fruitvc.com
-Fruit Ventures LLC
+PAVE means the Perspective Asset Valuation and Exchange Protocol.
+Public availability of the Materials does not make them open source.
 
-This license does not affect the UDIF standard, which is
-separately licensed under Apache License 2.0.
+2. Limited permission
+
+Subject to this license, FRUIT grants you a limited, non-exclusive,
+non-transferable, royalty-free copyright license to:
+
+(a) read and study the Materials;
+(b) download and make copies reasonably necessary for your own or your
+    organization's internal research and evaluation;
+(c) quote limited excerpts in commentary, scholarship, and technical
+    discussion, with appropriate source attribution; and
+(d) if executable examples or validation tools are expressly included
+    in the Materials, run them internally and without modification on
+    synthetic data solely to evaluate the published formats and examples.
+
+Internal evaluation may inform a potential commercial licensing decision.
+It does not authorize production use, use in operational decision-making,
+integration into a product or service, or providing functionality to others.
+
+Except for the limited excerpt permission above, this license does not
+authorize redistribution, modification, or creation of derivative works
+of the Materials. Sharing a link to the public repository is welcome.
+
+3. Implementation and other uses
+
+A separate written agreement with FRUIT is required for permission to:
+
+(a) copy, adapt, or incorporate the Materials into an implementation,
+    product, service, compiler, runtime, adapter, or hosted offering,
+    except for the evaluation expressly permitted in Section 2;
+(b) use software included in the Materials for production or operational
+    purposes, or make its functionality available to third parties;
+(c) distribute, sublicense, sell, or otherwise provide copies or
+    derivative works of the Materials beyond the limited excerpts
+    permitted in Section 2; or
+(d) obtain access to private PAVE implementations or services.
+
+These limits apply to both commercial and non-commercial uses of the
+Materials. This license does not grant a patent license. Any patent
+permissions must be addressed separately in writing.
+
+This license governs permission to use the Materials under rights FRUIT
+holds. It does not assert copyright ownership of abstract ideas, facts,
+systems, or methods of operation. Nothing in this license limits fair use
+or other rights and exceptions that applicable law permits independently
+of this license.
+
+4. Notices and attribution
+
+Retain applicable copyright, attribution, and license notices in permitted
+copies of the Materials. For permitted excerpts, identify PAVE and the
+source repository, and retain notices relevant to the excerpt where
+reasonably practicable.
+
+Do not misrepresent the authorship or source of the Materials or imply
+that FRUIT or a human contributor endorses an implementation or result.
+
+Rights in a person's source material, knowledge records, identity, and
+attributable judgment are separate from rights in PAVE's protocol
+materials. This license grants no permission to use such third-party
+material or to represent a person through an executable capability.
+
+Human-source attribution, authorized uses of a Lens, usage records, and
+any contributor compensation must be addressed in the applicable
+implementation and contributor agreements. Attribution alone does not
+establish consent, endorsement, or responsibility for an agent's actions.
+
+5. Private materials and confidentiality
+
+Undisclosed PAVE methods and private implementation materials are outside
+the scope of this license. Access, if offered, is subject to separate
+written terms, including confidentiality obligations where applicable.
+
+Public Materials are not designated confidential by this license.
+Nothing in this license represents that previously disclosed information
+becomes confidential merely because this license has been published.
+
+6. Names, trademarks, and endorsement
+
+No rights to use FRUIT's names, trademarks, logos, certification marks,
+or partner badges are granted, except for accurate identification of the
+source of the Materials and uses otherwise permitted by applicable law.
+
+You may not claim official partnership, certification, sponsorship, or
+endorsement by FRUIT without separate written authorization. Descriptive
+references to PAVE must not imply such a relationship.
+
+7. Separately licensed materials and UDIF
+
+Third-party and separately licensed materials retain their applicable
+terms. This license does not expand FRUIT's rights in those materials.
+
+UDIF (Universal Data Interchange Format) is a separate project. UDIF
+materials distributed under Apache License 2.0 remain governed by that
+license. Referencing UDIF or using its published interchange schemas
+does not, by itself, require a PAVE agreement or confer rights to private
+PAVE implementations or services.
+
+8. No warranties
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE MATERIALS ARE
+PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT WARRANTIES OF ANY KIND,
+EXPRESS, IMPLIED, OR STATUTORY, INCLUDING WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, TITLE, OR NON-INFRINGEMENT.
+
+FRUIT DOES NOT WARRANT THAT THE MATERIALS ARE COMPLETE, ACCURATE,
+ERROR-FREE, OR SUITABLE FOR ANY PARTICULAR IMPLEMENTATION. NO SUPPORT,
+MAINTENANCE, SERVICE AVAILABILITY, OR UPDATE OBLIGATION IS CREATED BY
+THIS LICENSE.
+
+9. Limitation of liability
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, FRUIT SHALL NOT BE
+LIABLE FOR DAMAGES ARISING OUT OF OR RELATED TO THE MATERIALS OR THEIR
+USE, INCLUDING DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL,
+OR PUNITIVE DAMAGES, OR LOSS OF PROFITS, DATA, OR BUSINESS OPPORTUNITY,
+EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+NOTHING IN THIS LICENSE EXCLUDES OR LIMITS LIABILITY THAT CANNOT
+LAWFULLY BE EXCLUDED OR LIMITED.
+
+10. Termination
+
+Permissions granted by this license terminate automatically if you fail
+to comply with its conditions. Upon termination, stop activities that
+depend on those permissions and delete copies made under them, except
+copies you must retain by law or may retain under independent rights.
+Legally required retained copies may not be used for further evaluation.
+
+Reinstatement requires FRUIT's written authorization. Termination does
+not affect rights available independently under applicable law or a
+separate agreement. Provisions concerning reserved rights, attribution
+and source identification for retained copies, trademarks, warranty
+disclaimers, and limitations of liability survive termination.
+
+11. License versions and separate agreements
+
+This version applies to Materials expressly distributed under it.
+Publication of a later version does not, by itself, change the terms
+applicable to copies previously received under another license version.
+
+A separate written agreement with FRUIT may grant additional permissions
+and controls to the extent it expressly supersedes this license for the
+covered Materials or services. If any provision of this license is held
+unenforceable, the remaining provisions remain effective to the extent
+permitted by law.
+
+12. Contact
+
+FRUIT Holdings, Inc.
+https://byfruit.io
+hello@byfruit.io
+
+For implementation, integration, evaluation beyond the permissions above,
+or commercial licensing, contact FRUIT to discuss a separate agreement.
