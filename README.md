@@ -88,7 +88,7 @@ These provide a foundation for representing human expertise as an asset whose ap
 
 ## Public scope and proprietary methods
 
-This repository provides a public overview and selected earlier schema materials. It does not disclose the complete proprietary methodology for eliciting, extracting, and transforming human judgment into executable representations.
+This repository provides a public overview of PAVE. Earlier schema materials and accompanying notes have been retired from the current branch; see [Specification Status](./spec/README.md). The repository does not disclose the complete proprietary methodology for eliciting, extracting, and transforming human judgment into executable representations.
 
 The public documentation describes the purpose, conceptual boundaries, and intended applications of PAVE. Detailed methods and implementation materials are maintained separately and are not offered under an open-source license.
 
